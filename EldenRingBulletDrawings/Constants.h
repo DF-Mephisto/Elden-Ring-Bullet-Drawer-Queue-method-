@@ -1,0 +1,15 @@
+#pragma once
+
+#define BLOCKSIZE 50
+#define BULLET_SIZE 28
+#define SCRIPT_OFFSET 5
+#define BULLET_MAN 8
+#define DATA_ADDR 16
+#define BULLET_MAN_AOB 0x0
+
+#define CALL_FLAG 25
+#define BULLET_COUNT 26
+#define BULLET_DATA 28
+#define LOCAL_BULLET_ID 0
+#define LOCAL_BULLET_COORDS 4
+#define LOCAL_BULLET_VECTORS 16

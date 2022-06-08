@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/EldenRingBulletDrawings">
+        <file alias="style">Resources/dark.qss</file>
+        <file alias="space">Resources/spaceBackground.jpg</file>
+        <file alias="light">Resources/light.png</file>
+    </qresource>
+</RCC>
