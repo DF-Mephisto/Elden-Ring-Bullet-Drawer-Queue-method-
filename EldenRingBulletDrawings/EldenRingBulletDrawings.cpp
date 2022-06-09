@@ -104,7 +104,7 @@ void EldenRingBulletDrawings::draw()
             {
                 if (net[z][y][x])
                 {
-                    float xCoord = (float)x * space - xSize * space / 2;
+                    float xCoord = (float)(xSize - x) * space - xSize * space / 2;
                     float yCoord = (float)(ySize - y) * space + 1.5f;
                     float zCoord = (float)z * space;
                     
