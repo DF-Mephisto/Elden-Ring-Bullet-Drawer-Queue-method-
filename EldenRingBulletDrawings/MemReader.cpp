@@ -36,10 +36,16 @@ bool MemReader::initialize()
 	if (pHandle == NULL)
 	{
 		Logger::getInstance().write("---------------Initialization---------------");
-		getProcess();
-		getModule();
-		if (openProc())
-			hookMemory();
+		if (!getProcess())
+			return false;
+
+		if (!getModule())
+			return false;
+
+		if (!openProc())
+			return false;
+
+		hookMemory();
 	}
 
 	return getProcessStatus();
@@ -119,6 +125,8 @@ void MemReader::closeProc()
 	CloseHandle(pHandle);
 	pHandle = NULL;
 	pID = NULL;
+	baseAddress = NULL;
+	moduleSize = NULL;
 }
 
 void MemReader::spawnBullet(int bulletId, float x, float y, float z, float vectorX, float vectorY, float vectorZ)
