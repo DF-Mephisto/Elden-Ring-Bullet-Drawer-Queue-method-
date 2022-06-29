@@ -92,7 +92,7 @@ DWORD64 MemReader::getModule()
 
 	if (Module32First(snapshot, &mInfo)) {
 		do {
-			if (wcsstr(mInfo.szExePath, chosenProcessName.c_str())) {
+			if (!chosenProcessName.empty() && wcsstr(mInfo.szExePath, chosenProcessName.c_str())) {
 				baseAddress = (DWORD64)mInfo.modBaseAddr;
 				moduleSize = mInfo.modBaseSize;
 				Logger::getInstance().write("Module address: " + QString::number(baseAddress, 16));
