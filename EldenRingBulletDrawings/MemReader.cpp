@@ -269,6 +269,7 @@ void MemReader::hookMemory()
 	BYTE* bulletData = new BYTE[bulletDataParsed.size()];
 	getSignBytes(bulletData, bulletDataParsed);
 	writeMemory((LPVOID)(dataMemory + BULLET_MAN_AOB), (LPVOID)bulletData, bulletDataParsed.size());
+	delete[] bulletData;
 
 	//Get and save world chr man
 	worldChrManAddr = findSignature(baseAddress, moduleSize, L"48 8B 05 ?? ?? ?? ?? 48 85 C0 74 0F 48 39 88 ?? ?? ?? ?? 75 06 89 B1 5C 03 00 00 0F 28 05 ?? ?? ?? ?? 4C 8D 45 E7");
