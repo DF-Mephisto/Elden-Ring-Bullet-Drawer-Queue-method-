@@ -162,8 +162,10 @@ POINT3D MemReader::getCharPos()
 {
 	POINT3D p;
 	DWORD64 addr;
+
 	readMemory((LPVOID)worldChrManAddr, (LPVOID)&addr, 8);
-	readMemory((LPVOID)(addr + 0x18468), (LPVOID)&addr, 8);
+	readMemory((LPVOID)(addr + 0x10EF8), (LPVOID)&addr, 8);
+	readMemory((LPVOID)(addr + 0x0), (LPVOID)&addr, 8);
 	readMemory((LPVOID)(addr + 0x190), (LPVOID)&addr, 8);
 	readMemory((LPVOID)(addr + 0x68), (LPVOID)&addr, 8);
 	readMemory((LPVOID)(addr + 0x70), (LPVOID)&p, 12);
@@ -177,7 +179,8 @@ float MemReader::getCharAngle()
 	DWORD64 addr;
 
 	readMemory((LPVOID)worldChrManAddr, (LPVOID)&addr, 8);
-	readMemory((LPVOID)(addr + 0x18468), (LPVOID)&addr, 8);
+	readMemory((LPVOID)(addr + 0x10EF8), (LPVOID)&addr, 8);
+	readMemory((LPVOID)(addr + 0x0), (LPVOID)&addr, 8);
 	readMemory((LPVOID)(addr + 0x6D0), (LPVOID)&angle, 4);
 	return angle;
 }
