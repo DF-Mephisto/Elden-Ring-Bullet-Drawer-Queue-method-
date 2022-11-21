@@ -193,8 +193,6 @@ StyleCopReport.xml
 *.scc
 
 *.ds2bm
-*.filters
-*.vcxproj
 
 # Chutzpah Test files
 _Chutzpah*
