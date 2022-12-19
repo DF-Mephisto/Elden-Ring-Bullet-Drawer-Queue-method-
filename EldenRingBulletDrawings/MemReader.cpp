@@ -181,7 +181,7 @@ float MemReader::getCharAngle()
 	readMemory((LPVOID)worldChrManAddr, (LPVOID)&addr, 8);
 	readMemory((LPVOID)(addr + 0x10EF8), (LPVOID)&addr, 8);
 	readMemory((LPVOID)(addr + 0x0), (LPVOID)&addr, 8);
-	readMemory((LPVOID)(addr + 0x6D0), (LPVOID)&angle, 4);
+	readMemory((LPVOID)(addr + 0x6E0), (LPVOID)&angle, 4);
 	return angle;
 }
 
@@ -275,7 +275,7 @@ void MemReader::hookMemory()
 	delete[] bulletData;
 
 	//Get and save world chr man
-	worldChrManAddr = findSignature(baseAddress, moduleSize, L"48 8B 05 ?? ?? ?? ?? 48 85 C0 74 0F 48 39 88 ?? ?? ?? ?? 75 06 89 B1 5C 03 00 00 0F 28 05 ?? ?? ?? ?? 4C 8D 45 E7");
+	worldChrManAddr = findSignature(baseAddress, moduleSize, L"48 8B 05 ?? ?? ?? ?? 48 85 C0 74 0F 48 39 88");
 	DWORD32 WORLD_CHR_MAN_OFFSET;
 	readMemory((LPVOID)(worldChrManAddr + 3), (LPVOID)&WORLD_CHR_MAN_OFFSET, 4);
 	worldChrManAddr = worldChrManAddr + WORLD_CHR_MAN_OFFSET + 7;
@@ -287,6 +287,7 @@ void MemReader::hookMemory()
 	Logger::getInstance().write("Script allocated address: " + QString::number(scriptMemory, 16));
 	Logger::getInstance().write("Data allocated address: " + QString::number(dataMemory, 16));
 	Logger::getInstance().write("Instruction address: " + QString::number(instructionAddr, 16));
+	Logger::getInstance().write("WorldChrMan address: " + QString::number(worldChrManAddr, 16));
 	//7FF6D2B30828
 	//7FF6D2B30048
 	//7FF6D2B30000
